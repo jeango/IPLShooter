@@ -4,6 +4,7 @@ using System.Collections;
 public class HealthManager : MonoBehaviour {
 
 	public int health;
+	private int initHealth;
 
 	public EventsManager eventsManager;
 
@@ -11,6 +12,7 @@ public class HealthManager : MonoBehaviour {
 		if (!eventsManager) {
 			eventsManager = GetComponentInParent<EventsManager> ();
 		}
+		initHealth = health;
 	}
 
 	public void TakeDamage(int damage) {
@@ -22,6 +24,10 @@ public class HealthManager : MonoBehaviour {
 
 	void Die() {
 		eventsManager.Die ();
+	}
+
+	void OnEnable() {
+		health = initHealth;
 	}
 
 }

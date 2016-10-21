@@ -21,6 +21,10 @@ public class DeathManager : MonoBehaviour {
 		eventsManager.OnDie += Die;
 	}
 
+	void OnDisable() {
+		eventsManager.OnDie -= Die;
+	}
+
 	void Die() {
 		foreach (var item in dieBehaviours) {
 			item.Die (gameObject);

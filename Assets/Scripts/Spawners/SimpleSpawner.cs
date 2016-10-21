@@ -30,7 +30,7 @@ public class SimpleSpawner : MonoBehaviour {
 	}
 
 	public virtual GameObject Spawn() {
-		GameObject instance = (GameObject)Instantiate (prefab);
+		GameObject instance = ObjectPoolsManager.GetInstance().GetObject(prefab);
 		instance.transform.position = transform.position;
 		instance.layer = gameObject.layer;
 		if (parentObject) {
