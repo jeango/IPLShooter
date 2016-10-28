@@ -22,6 +22,11 @@ public class HealthManager : MonoBehaviour {
 		}
 	}
 
+	public void Heal(int healAmount) {
+		health = Mathf.Min (health + healAmount, initHealth);
+	}
+
+
 	void Die() {
 		eventsManager.Die ();
 	}
